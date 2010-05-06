@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>WRCA Search Results</title>
+
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="/site_media/blueprint-css/screen.css" type="text/css" media="screen, projection, print">
+    <!-- link rel="stylesheet" href="../../blueprint/print.css" type="text/css" media="print" -->
+    <!--[if lt IE 8]><link rel="stylesheet" href="../../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <!-- Import fancy-type plugin for the sample page. -->
+    <!-- link rel="stylesheet" href="../../blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" -->
+    <link rel="stylesheet" href="/site_media/blueprint-css/plugins.buttons.screen.css" type="text/css" media="screen, projection">
+<style type="text/css"> 
+
+A 		{ color: #336699; text-decoration: underline; }
+A:link		{ color: #000080; text-decoration: underline; }
+A:visited	{ color: #336699; text-decoration: underline; }
+A:active	{ color: #9966FF; text-decoration: underline; }
+A:hover		{ color: #CC6633; text-decoration: none; }
+
+
+.results div { padding:0 0 1.38em; } 
+.results div.notice { padding:0.8em; text-align: center; }
+.button { font-size: 1.5em; height: 1.8em; background-color: #a5d4eb; } 
+.next { background-color: #a5d4eb; } 
+select { background-color: #a5d4eb; }
+/* input { background-color: #a5d4eb; border: 1px solid #eee; } */
+a.close { text-decoration: none; position:relative; left: 4px; } 
+.facet { border:2px solid #DDDDDD; padding: .5em; margin-left: 3em; height: 1.8em; top: .5em; }
+.facet a.close { vertical-align:super; text-align: right; } 
+.wrca-logo {  position:relative; left: 9px; } 
+
+/* Bubble with an isoceles triangle
+------------------------------------------ */
+/* http://nicolasgallagher.com/demo/pure-css-speech-bubbles/bubbles.html */
+.triangle-isosceles {
+	position:relative;
+	padding:15px;
+	margin:1em 0 3em;
+	color:#000;
+	background:#eee; /* default background for browsers without gradient support */
+	
+	/* css3 */
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#ddd), to(#eee));
+	background:-moz-linear-gradient(top, #ddd, #eee);
+	background:-o-linear-gradient(top, #ddd, #eee);
+	background:linear-gradient(top, #ddd, #eee);
+}
+
+/* creates triangle */
+.triangle-isosceles:after {
+        content:"\00a0";
+        display:block; /* reduce the damage in FF3.0 */
+        position:absolute;
+        z-index:-1;
+        bottom:-30px; /* value = - border-top-width - border-bottom-width */
+        left:50px; /* controls horizontal position */
+        width:0;
+        height:0;
+        border-width:15px 15px; /* vary these values to change the angle of the vertex */
+        border-style:solid;
+        border-color:#f3961c transparent transparent;
+}
+
+
+/* Bubble with an isoceles triangle
+------------------------------------------ */
+
+.triangle-isosceles.top {
+	/* NOTE: webkit gradient implementation is not as per spec */
+	background:-webkit-gradient(linear, left top, left bottom, from(#ddd), to(#eee));
+	background:-moz-linear-gradient(top, #ddd, #eee);
+	background:-o-linear-gradient(top, #ddd, #eee);
+	background:linear-gradient(top, #ddd, #eee);
+}
+
+/* creates triangle */
+.triangle-isosceles.top:after {
+	top:-30px; /* value = - border-top-width - border-bottom-width */
+	left:50px; /* controls horizontal position */
+	bottom:auto;
+	left:auto;
+	border-color:transparent transparent #ddd;
+}
+
+
+
+
+</style>
+  </head>
+  <body>
+    <div class="container">
+<div class="header">
+<div class="span-11 prepend-14 last">
+<a href="http://www.lib.berkeley.edu/WRCA/faq.html">
+<img height="11" width="125" border="0" nosave="" alt="[ HELP/FAQ ]" src="http://www.lib.berkeley.edu/Images/help.gif"></a><a href="http://www.lib.berkeley.edu/WRCA/database.html"><img height="11" width="101" border="0" nosave="" alt="[ CATALOGS ]" src="http://www.lib.berkeley.edu/Images/catalogs.gif"></a><a href="http://www.lib.berkeley.edu/WRCA/ecomment.html"><img height="11" width="106" border="0" nosave="" alt="[ COMMENTS ]" src="http://www.lib.berkeley.edu/Images/comments.gif"></a><a href="http://www.lib.berkeley.edu/WRCA/"><img height="11" width="67" border="0" nosave="" alt="[ HOME ]" src="http://www.lib.berkeley.edu/Images/home.gif"></a>
+</div>
+    <div><a href="http://www.lib.berkeley.edu/WRCA/"><img class="wrca-logo" src="http://www.lib.berkeley.edu/WRCA/images/header1.gif" width="354" height="45" border="0"/></a></div>
+
+<p class="triangle-isosceles top">Wireframe/design comp for search results (produced with <a href="http://www.blueprintcss.org/">blueprint-css framework's</a> 24 column <a href="grid.html">grid</a> system.) 
+This header is customized, as well as footer and vertical banner, and colors.  
+This ballon text is not part of the design.</p>
+
+</div>
+<form class="prepend-2 span-22">
+              <input type="text" class="title" name="dummy0" id="dummy0" value="lorem ipsum"> 
+              <input type="submit" class="button" value="search"> 
+<span class="facet">Limited to WRCA web site <a href="" class="close" title="remove limit">☒</a></span>
+<span class="facet">Limited to PDF <a title="remove limit" class="close" href="#">☒</a></span>
+</form>
+<hr>
+      <div class="results span-14 prepend-2 colborder">
+<div class="dym">Did you mean <a href="">loren gypsum</a>?</div>
+<div class="notice">
+There are no results for this query. Please modify your search and try again.
+</div>
+<p class="triangle-isosceles top">everything is turned on for layout, normally no suggestions, facet limit boxes to the right of the search box, or zero results notice would be here.  Color for
+the notice could be customized, yellow is blueprint-css default for form notice.</p>
+
+<div class="pagination"><form>page 1 of 400 
+showing <select><option>10</option><option>100</option></select> per page. 3992 results
+</form></div>
+
+<div>
+<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
+Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
+<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
+</div>
+
+<div>
+<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
+Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
+<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
+</div>
+
+<div>
+<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
+Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
+<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
+</div>
+
+<div>
+<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
+Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
+<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
+</div>
+
+<div>
+<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
+Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
+<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
+</div>
+
+<div>
+<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
+Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
+<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
+</div>
+
+<div>
+<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
+Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
+<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
+</div>
+
+<div>
+<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
+Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
+<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
+</div>
+
+<div>
+<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
+Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
+<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
+</div>
+
+<div>
+<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
+Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
+<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
+</div>
+
+
+<div class="pagination"><form>
+<input type="submit" class="button" value="|◀"></input>
+<input type="submit" class="button" value="◀"></input>
+page <input style="font-size:1.5em;" size="1" value="1">   of 400 
+<input type="submit" class="button" value="▶"></input>   
+showing <select><option>10</option><option>100</option></select> per page. 3992 results
+</form>
+</div>
+<div class="triangle-isosceles top" style="padding:15px;">
+	<p>In an ideal world this will match UC Portal results/pagination as they evolve. (not
+customizable, except for colors). 
+</p>
+	<ul>
+<li><a href="http://blog.twigkit.com/pagination-common-problems/">The Dào of Search &raquo;Pagination: Common Problems</a></li>
+<li><a href="http://justaddwater.dk/2008/01/03/usability-of-pagination-links/">justaddwater.dk | Usability of Pagination Links</a></li>
+</ul>
+</div>
+      </div>
+
+      <div class="span-7 last">
+        <h3>Limit to:</h3>
+        <h4>source</h4>
+	<ul>
+	<li><a href="">WRCA web site (123)</a></li>
+	<li><a href="">WRCA blog (123)</a></li>
+	<li><a href="">WRCA on eScholarship (123)</a></li>
+	<li><a href="">WRCA on OAC (123)</a></li>
+	<li><a href="">WRCA on WAS (123)</a></li>
+	<li><a href="">WRCA on archive.org (12)</a></li>
+	<li><a href="">WRCA on davidrumsey.com (12)</a></li>
+	<li><a href="">WRCA on cdmhost.com (12)</a></li>
+	</ul>
+        <h4>type</h4>
+	<ul>
+	<li>PDF (123)<a href="" class="close">☒</a></li>
+	<li><a href="">HTML (123)</a></li>
+	</ul>
+<div class="triangle-isosceles top">
+<p>The wireframe shows a state that will never happen, facets work like <a href="http://www.oac.cdlib.org/search?query=fred;x=0;y=0;style=oac4;institution=California%20Academy%20of%20Sciences;decade=1880s">OAC facets</a>.
+Facet with temp label "source" above will be generated by matching regex patterns against the URL.</p>
+<p>Search limits probably will not be on the first demo, will take est. 8 to 20 hours additional hours programming assuming I'll be able to use this wiki page on <a href="http://wiki.apache.org/solr/UpdateRequestProcessor">UpdateRequestProcessor</a> <a href="http://www.mail-archive.com/solr-user@lucene.apache.org/msg25659.html">in solr</a> to figure out how to do some simple custom fields for the facets + whatever it will take to impliment this in the django template/django solr library.</p>
+<p>☒ 'BALLOT BOX WITH X' is used in the facet boxes.  </p>
+</div>
+<hr>
+<div class="prepend-1 prepend-top vert-banner">
+<a style="position: relative; left: 30px;" href="http://givetocal.berkeley.edu/browse/?u=123"><strong>Support WRCA!</strong></a><br><br>
+<a href="http://www.lib.berkeley.edu/WRCA"><img title="Water Resources Center Archives" src="http://www.lib.berkeley.edu/WRCA/images/wrca_logo_bluebkg_cmyk_r2.gif"></a>   
+<a style="position: relative; left: 19px;" href="http://www.facebook.com/pages/Berkeley-CA/Water-Resources-Center-Archives/163647453707"><img title="Become a WRCA Facebook fan!" src="http://www.lib.berkeley.edu/WRCA/images/fbbadge.png"></a>
+</div>
+<p class="triangle-isosceles top">
+Vertical banner area. (customizable)
+</p>
+      </div>
+<hr>
+
+<div class="footer" align="center">
+<p><font face="Arial,Helvetica" size="1pt" color="666666">
+<b><a href="http://www.lib.berkeley.edu/WRCA/database.html">Catalogs</a> | <a href="http://www.lib.berkeley.edu/WRCA/ecomment.html">Comments</a></b> | <a href="http://www.lib.berkeley.edu/WRCA/friends.html"><b>Support the Archives</b></a><br>
+Copyright &copy; [Current-Year] The Regents of the University of California.<br>
+<i>All rights reserved.</i>&nbsp;&nbsp;Data owner: <a href="http://www.lib.berkeley.edu/WRCA/staff.html">Paul Atwood</a>
+
+</font>
+</p>
+</div>
+<div class="triangle-isosceles top">
+<p>
+footer area. (customizable)  Limited support for variable expansion desired in custom areas ([Current-Year] for copyright, search 
+terms for AJAX based meta search?)
+</p>
+<p>if at least one of the customizable areas (footer?) is hosted on the Library's website, then this could be served via
+an iframe with the benefit of logging a hit on the local server for integration into local statistic reports esp. for
+libraries that are allowed to use google analytics by local intrepretation of privacy policy.
+</p>
+</div>
+</div>
+<hr/>
+<div class="container" >
+<h1>Single Search Demo</h1>
+<p>The search would work like the <a href="http://ucverse.universityofcalifornia.edu/search/?q=wrca">UC portal search</a>, but it would allow the library to build a custom index/crawl.</p>
+<h2>Full site indexing</h2>
+<p>These URLs would be spidered to a high depth, the exact list would be customizable and feed to a nutch urlfilter,
+filter rule contains a regular expression prefixed by '+' or '-'. The first matching pattern determines whether a URL is included or ignored.  The last matching pattern would determin the facet label value (why? this will enable there to
+be multiple facet values per host with careful ordering).  If no pattern matches, the URL is ignored.
+</p>
+<table>
+<tr><td class="span-8">filter rule</td><td class="span-8">label</td></tr>
+<tr><td class="span-8"><code>+^http://www.lib.berkeley.edu/WRCA/</code></td><td class="span-8">WRCA web site</td></tr>
+<tr><td class="span-8"><code>+^http://blogs.lib.berkeley.edu/wrca.php</code></td><td class="span-8">WRCA blog</td></tr>
+</tr>
+</table>
+<h2>Item only indexing</h2>
+<p>Single items owned by the customizing institution would be indexed in this section.  For the demo, I created the list
+of URLs using simple unix commands and the command line browser lynx.</p>
+</p>
+<table>
+<tr><td class="span-8">content provider</td><td class="span-5">notes</td></tr>
+<tr><td class="span-8"><code>www.oac.cdlib.org</code></td><td class="span-5">OAC EAD and objects from WRCA.</td></tr>
+<tr><td class="span-8"><code>www.escholarship.org</code></td><td class="span-5"><a href="http://www.escholarship.org/uc/wrc">/uc/wrca</a> and <a href="http://www.escholarship.org/uc/wrc">/uc/wrc</a></td></tr>
+<tr><td class="span-8"><code>webarchives.cdlib.org</code></td><td class="span-8">Just the description of the <a href="http://webarchives.cdlib.org/a/CAWaterDistricts">WAS archive</a> from WRCA.</td></tr>
+<tr><td class="span-8"><code>archives.org</code></td><td class="span-8">Oral histories, state series, atlas</td></tr>
+<tr><td class="span-8"><code>cdmhost.com</code></td><td class="span-8">CONTENTdm repo for WRCA</td></tr>
+<tr><td class="span-8"><code>davidrumsey.com</code></td><td class="span-8"><a href="http://www.davidrumsey.com/luna/servlet/view/search?q=5788">water atlas</a> in luna insight</td></tr>
+</tr>
+</table>
+<h3>RSS indexing</h3>
+<p>Nutch has built in support for RSS feed crawling, so letting the customizing
+library specify RSS feeds seems like an easy feature, but I'm not planning to use RSS for the demo right now.
+But, <a href="http://delicious.com/wrca">delicious.com</a>?  <a href="http://www.youtube.com/user/UCBerkeleyEvents#grid/user/CF0A91966F74204D">youtube.edu</a>? WRCA bookmarks/items could be added to the index for a test if this looks promising.</p>
+
+<h3>OAI indexing</h3>
+<p>It seems like it would be possible to create an OAI parser for nutch or at least extract URLs out of OAI and feed them to nutch, but I'm not certain this is actually desirable.</p>
+
+<h2>Test merged nutch index stats</h2>
+<p>I have a test index done with nutch and ready to go once the solr server and django server are set up.</p>
+<pre>
+status 2 (db_fetched):  	6452
+   www.lib.berkeley.edu :       1374	limited to www.lib.berkeley.edu/WRCA/ ; depth = 10
+   blogs.lib.berkeley.edu :     3415	limited to blogs.lib.berkeley.edu/wrca.php ; depth = 10
+   www.oac.cdlib.org :  	116	limited to WRCA URLs ; depth = 1
+   content.cdlib.org :  	1197	limited to WRCA URLs ; depth = 1
+   webarchives.cdlib.org :      5	limited to WRCA URLs ; depth = 1
+   www.escholarship.org :       326	limited to WRCA URLs ; depth = 1
+   www.archive.org :    	19	limited to WRCA URLs ; depth = 1
+</pre>
+    </div>
+
+
+  </body>
+</html>
