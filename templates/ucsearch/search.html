@@ -29,11 +29,16 @@
 </div>
 {% endblock header %}
 <form class="prepend-2 span-22">
-              <input type="text" class="title" name="dummy0" id="dummy0" value=""> <!-- fill in value -->
+              <input type="text" class="title" name="q"
+		value="{{ query }}"> <!-- fill in value -->
               <input type="submit" class="button" value="search"> 
+
+
 <!-- facets -->
 <!-- <span class="facet">Limited to WRCA web site <a href="" class="close" title="remove limit">☒</a></span>
 <span class="facet">Limited to PDF <a title="remove limit" class="close" href="#">☒</a></span> -->
+
+
 </form>
 <hr>
 {% block bodycontent %}
@@ -41,86 +46,98 @@
 <!-- 
 <div class="dym">Did you mean <a href="">loren gypsum</a>?</div>
 -->
-<!--
+
+                  {% if searchError %}
+			<div class="error">
+                  {{ searchError }}
+			</div>
+                  {% endif %}
+
+                {% ifequal number_results 0 %}
 <div class="notice">
-There are no results for this query. Please modify your search and try again.
+There are no results for this query (<b>{{ query }}</b>). Please modify your search and try again.
 </div>
--->
+                {% else %}
 
-<div class="pagination"><form>page 1 of 400 
-showing <select><option>10</option><option>100</option></select> per page. 3992 results
-</form></div>
 
-<div>
-<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
-Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
-<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
-</div>
 
-<div>
-<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
-Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
-<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
-</div>
+<div class="pagination">
 
-<div>
-<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
-Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
-<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
-</div>
+<form>page {{ pagenum }} of {{ pager.num_pages }}
+<span>Showing
+                    <select name="perpage" id="perpage">
+                        {% for num in perpage_options %}
+                        {% ifequal num perpage %}
+                        <option value="{{ num }}" selected="selected">{{ num }}</option>
+                        {% else %}
+                        <option value="{{ num }}">{{ num }}</option>
+                        {% endifequal %}
+                        {% endfor %}
+                    </select>
+                    per page.</span> {{ response.numFound }} results
+<!-- showing <select><option>10</option><option>100</option></select> per page. 3992 results -->
 
-<div>
-<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
-Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
-<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
+</form>
+
 </div>
 
-<div>
-<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
-Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
-<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
-</div>
+                  {% for result in results %}
 
-<div>
-<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
-Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
-<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
-</div>
+                  <div class="hit">
+                      <p><a href="{{ result.url }}"><strong>{{ result.title }}</strong></a><br />
+                      {% for snippet in result.snippets %}
+                      {{ snippet|safe }}…
+                      {% endfor %}
+                    <br />
+                        <a href="{{ result.url }}">{{ result.url }}</a>&nbsp;&nbsp;
+<a class="a2a_dd"
+    href="http://www.addtoany.com/share_save?linkname=From%20UCverse%20-%20{{ result.title|urlencode }}&amp;linkurl={{ result.url|urlencode }}">
+    <img src="http://static.addtoany.com/buttons/share_save_120_16.gif" width="120" height="16" border="0" alt="Share/Share"/></a>
 
-<div>
-<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
-Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
-<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
-</div>
-
-<div>
-<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
-Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
-<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
-</div>
-
-<div>
-<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
-Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
-<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
-</div>
-
-<div>
-<a href="">Secant  terra origine aetas diu zonae supplex</a> <br/>
-Fabricator stagna temperiemque <em>lorum</em> iners rectumque ... supplex homo mixtam <em>ipsum</em> caelumque recens ... caesa hanc mentes diversa homo obstabatque <em>lorum</em> lumina altae fuerant ...  <br/>
-<a href="">http://www.example.ucx.edu/somesite/url.html?jid=22</a>
-</div>
+<script
+    type="text/javascript">a2a_linkname="From UCverse - {{ result.title }}";a2a_linkurl="{{ result.url }}";a2a_onclick=1;
+</script>
+                </p>
+                 </div>
+                  {% endfor %}
 
 
-<div class="pagination"><form>
+                 <div class="pagination"><a
+                      href="/search?q={{ query }}&perpage={{ perpage }}&pagnum=1">&lt;&lt;</a>&nbsp;&nbsp;
+                  {% if page_current.has_previous %}
+                  <a href="/search?q={{ query }}&perpage={{ perpage }}&pagenum={{ page_current.previous_page_number }}">&lt;</a>&nbsp;
+                  {% endif %}
+                    <input name="pagenum" type="text" id="pagenum" size="1" value="{{ pagenum }}" />
+                    of {{ pager.num_pages }}
+                  {% if page_current.has_next %}
+                  <a href="/search?q={{ query }}&perpage={{ perpage }}&pagenum={{ page_current.next_page_number }}">&gt;</a>&nbsp;&nbsp;
+                  {% endif %}
+                  <a href="/search?q={{ query }}&perpage={{ perpage }}&pagenum={{ pager.num_pages }}">&gt;&gt;</a>
+<span>Showing                    <select name="perpage" id="perpage">
+                        {% for num in perpage_options %}
+                        {% ifequal num perpage %}
+                        <option value="{{ num }}" selected="selected">{{ num }}</option>
+                        {% else %}
+                        <option value="{{ num }}">{{ num }}</option>                        {% endifequal %}
+                        {% endfor %}
+                    </select>
+                    per page.</span> {{ response.numFound }} results
+
+                  </div>
+
+
+<!-- div class="pagination">
+<form>
 <input type="submit" class="button" value="|◀"></input>
 <input type="submit" class="button" value="◀"></input>
 page <input style="font-size:1.5em;" size="1" value="1">   of 400 
 <input type="submit" class="button" value="▶"></input>   
-showing <select><option>10</option><option>100</option></select> per page. 3992 results
-</form>
-</div>
 
+
+
+</form>
+</div -->
+{% endifequal %}
 {% endblock bodycontent %}
       </div>
 
