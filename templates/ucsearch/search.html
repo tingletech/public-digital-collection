@@ -35,6 +35,8 @@
 
 
 <!-- facets -->
+
+
 <!-- <span class="facet">Limited to WRCA web site <a href="" class="close" title="remove limit">☒</a></span>
 <span class="facet">Limited to PDF <a title="remove limit" class="close" href="#">☒</a></span> -->
 
@@ -142,28 +144,22 @@ page <input style="font-size:1.5em;" size="1" value="1">   of 400
       </div>
 
       <div class="span-7 last">
-<!--
         <h3>Limit to:</h3>
         <h4>source</h4>
 	<ul>
-	<li><a href="">WRCA web site (123)</a></li>
-	<li><a href="">WRCA blog (123)</a></li>
-	<li><a href="">WRCA on eScholarship (123)</a></li>
-	<li><a href="">WRCA on OAC (123)</a></li>
-	<li><a href="">WRCA on WAS (123)</a></li>
-	<li><a href="">WRCA on archive.org (12)</a></li>
-	<li><a href="">WRCA on davidrumsey.com (12)</a></li>
-	<li><a href="">WRCA on cdmhost.com (12)</a></li>
+{{ response.facet_counts.facet_fields.site }}
+{% for site in response.facet_counts.facet_fields.site %}
+  <li>{{ site }} </li>
+{% endfor %}
 	</ul>
-        <h4>type</h4>
+        <!-- h4>type</h4>
 	<ul>
 	<li>PDF (123)<a href="" class="close">☒</a></li>
-	<li><a href="">HTML (123)</a></li>
+	<li><a href="">HTML (123)</a></li -->
 	</ul>
 
 
 <hr>
--->
 
 
 <div class="prepend-1 prepend-top vert-banner">

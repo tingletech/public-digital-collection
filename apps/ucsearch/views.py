@@ -15,7 +15,9 @@ def query_response(query):
                     hl_snippets = 4,
                     hl_fragsize = 100,
                     hl_simple_pre='<span class="search_highlight">',
-                    hl_simple_post='</span>'
+                    hl_simple_post='</span>',
+                    facet='true', 
+                    facet_field='site'
                   )
 
 def query_results_text(query):
