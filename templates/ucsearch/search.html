@@ -59,6 +59,8 @@
 <div class="notice">
 There are no results for this query (<b>{{ query }}</b>). Please modify your search and try again.
 </div>
+</div>
+      <div class="span-7 last">
                 {% else %}
 
 
@@ -139,8 +141,6 @@ page <input style="font-size:1.5em;" size="1" value="1">   of 400
 
 </form>
 </div -->
-{% endifequal %}
-{% endblock bodycontent %}
       </div>
 
       <div class="span-7 last">
@@ -160,7 +160,8 @@ page <input style="font-size:1.5em;" size="1" value="1">   of 400
 
 
 <hr>
-
+{% endifequal %}
+{% endblock bodycontent %}
 
 <div class="prepend-1 prepend-top vert-banner">
 <a style="position: relative; left: 30px;" href="http://givetocal.berkeley.edu/browse/?u=123"><strong>Support WRCA!</strong></a><br><br>
