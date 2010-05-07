@@ -4,7 +4,7 @@ from django.conf import settings
 
 SOLR_URL = settings.SOLR_URL if settings.SOLR_URL else 'http://localhost:8983/solr/'
 
-def query_response(query):
+def query_response(query, fq=''):
     ''' Returns a solrpy response object.
     numCount and max? are interesting
     '''
@@ -17,7 +17,8 @@ def query_response(query):
                     hl_simple_pre='<span class="search_highlight">',
                     hl_simple_post='</span>',
                     facet='true', 
-                    facet_field='site'
+                    facet_field='site',
+                    fq = fq,
                   )
 
 def query_results_text(query):
@@ -52,6 +53,7 @@ def get_highlights_for_result(result, highlights):
 def get_search_page(request):
     query = request.GET.get('q', None)
     perpage = request.GET.get('perpage', 10)
+    fq = request.GET.get('fq', '')
     try:
         perpage = int(perpage)
     except ValueError:
@@ -61,9 +63,9 @@ def get_search_page(request):
         pagenum = int(pagenum)
     except ValueError:
         pagenum = 1
-    return view_search_page(request, query, perpage, pagenum)
+    return view_search_page(request, query, perpage, pagenum, fq)
 
-def view_search_page(request, query, perpage=20, pagenum=1):
+def view_search_page(request, query, perpage=20, pagenum=1, fq=''):
     ''' Query the solr server with any search terms.
     '''
     #import sys
@@ -75,7 +77,7 @@ def view_search_page(request, query, perpage=20, pagenum=1):
         return render_to_response('ucsearch/search.html')
     query = query.lstrip('/')
     try:
-        response = query_response(query)
+        response = query_response(query, fq)
     except solr.SolrException, e:
         msg = ''.join([ 'Solr query problem.',
                         '; HTTP Code:', unicode(e.httpcode),
@@ -106,7 +108,7 @@ def view_search_page(request, query, perpage=20, pagenum=1):
                 page_current.highlighting)
         if result['url'][0] == '/':
             result['url'] = 'http://'+ hostname + result['url']
-    perpage_options = [4,5,6,7,8,9,10,15,20,25,30,]
+    perpage_options = [10,100,]
     if perpage not in perpage_options:
         perpage_options.append(perpage)
 

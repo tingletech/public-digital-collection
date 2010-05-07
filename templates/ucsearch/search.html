@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
    "http://www.w3.org/TR/html4/strict.dtd">
-
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -147,9 +146,10 @@ page <input style="font-size:1.5em;" size="1" value="1">   of 400
         <h3>Limit to:</h3>
         <h4>source</h4>
 	<ul>
-{{ response.facet_counts.facet_fields.site }}
-{% for site in response.facet_counts.facet_fields.site %}
-  <li>{{ site }} </li>
+{% for site, hits in response.facet_counts.facet_fields.site.items %}
+{% if hits %}
+  <li><a href="{% url get_search_page %}?q={{ request.GET.q }}&fq=site:&quot;{{ site }}&quot;">{{ site }} ({{ hits }})<a></li>
+{% endif %}
 {% endfor %}
 	</ul>
         <!-- h4>type</h4>
