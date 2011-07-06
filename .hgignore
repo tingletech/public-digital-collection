@@ -1,1 +1,11 @@
 .*\.pyc$
+^java-packages$
+^java-homes/solr_home/data$
+.*logs$
+^java-homes/catalina_base/webapps/solr$
+.*\.class$
+# virtualenv
+^bin$
+^lib$
+^include$
+
