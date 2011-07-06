@@ -8,14 +8,15 @@ def query_response(query, fq=''):
     ''' Returns a solrpy response object.
     numCount and max? are interesting
     '''
-    s = solr.SolrConnection(SOLR_URL)
+    s = solr.SolrConnection(SOLR_URL, debug=True)
     return s.query(query,
-                    fields=('score', 'id', 'title', 'url', 'content', 'markup', 'tstamp'),
+                    #fields=('score', 'id', 'title', 'url', 'content', 'markup'),
+                    fields=('score', 'id', 'title', 'url', 'content'),
                     highlight=True,
-                    hl_snippets = 4,
-                    hl_fragsize = 100,
-                    hl_simple_pre='<span class="search_highlight">',
-                    hl_simple_post='</span>',
+                    #hl_snippets = 4,
+                    #hl_fragsize = 100,
+                    #hl_simple_pre='<span class="search_highlight">',
+                    #hl_simple_post='</span>',
                     facet='true', 
                     facet_field='site',
                     fq = fq,
@@ -71,7 +72,7 @@ def view_search_page(request, query, perpage=20, pagenum=1, fq=''):
     #import sys
     #print >> sys.stdout, 'PERPAGE=', perpage
     #print >> sys.stdout, 'pagenum=', pagenum
-    hostname = request.META.get('SERVER_NAME', 'www.ucverse.org')
+    hostname = request.META.get('SERVER_NAME', 'ucportal-dev.cdlib.org')
     searchError = None
     if query is None:
         return render_to_response('ucsearch/search.html')
@@ -104,8 +105,7 @@ def view_search_page(request, query, perpage=20, pagenum=1, fq=''):
     #print >> sys.stdout, "LEN RESULTS=", len(results)
     #results = response.results
     for result in results:
-        result['snippets'] = get_highlights_for_result(result,
-                page_current.highlighting)
+        result['snippets'] = get_highlights_for_result(result, response.highlighting)
         if result['url'][0] == '/':
             result['url'] = 'http://'+ hostname + result['url']
     perpage_options = [10,100,]
