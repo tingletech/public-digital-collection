@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>WRCA Search Results {% if site_name %}{{ site_name }} : {% endif %}{% block head_title %}{% endblock %}</title>
+    <title>Search Results {% if site_name %}{{ site_name }} : {% endif %}{% block head_title %}{% endblock %}</title>
 
     {% block head_extra %} {% endblock head_extra %}
     {% block head_script_includes %} {% endblock head_script_includes %}
@@ -16,15 +16,7 @@
 {% block header %}
 
 <div class="span-11 prepend-14 last">
-<a href="http://www.lib.berkeley.edu/WRCA/faq.html">
-<img height="11" width="125" border="0" nosave="" alt="[ HELP/FAQ ]" src="http://www.lib.berkeley.edu/Images/help.gif"></a><a href="http://www.lib.berkeley.edu/WRCA/database.html"><img height="11" width="101" border="0" nosave="" alt="[ CATALOGS ]" src="http://www.lib.berkeley.edu/Images/catalogs.gif"></a><a href="http://www.lib.berkeley.edu/WRCA/ecomment.html"><img height="11" width="106" border="0" nosave="" alt="[ COMMENTS ]" src="http://www.lib.berkeley.edu/Images/comments.gif"></a><a href="http://www.lib.berkeley.edu/WRCA/"><img height="11" width="67" border="0" nosave="" alt="[ HOME ]" src="http://www.lib.berkeley.edu/Images/home.gif"></a>
-</div>
-    <div><a href="http://www.lib.berkeley.edu/WRCA/"><img class="wrca-logo" src="http://www.lib.berkeley.edu/WRCA/images/header1.gif" width="354" height="45" border="0"/></a></div>
-
-
-
-
-
+<h1>header</h1>
 </div>
 {% endblock header %}
 <form class="prepend-2 span-22">
@@ -93,13 +85,7 @@ There are no results for this query (<b>{{ query }}</b>). Please modify your sea
                       {% endfor %}
                     <br />
                         <a href="{{ result.url }}">{{ result.url }}</a>&nbsp;&nbsp;
-<a class="a2a_dd"
-    href="http://www.addtoany.com/share_save?linkname=From%20UCverse%20-%20{{ result.title|urlencode }}&amp;linkurl={{ result.url|urlencode }}">
-    <img src="http://static.addtoany.com/buttons/share_save_120_16.gif" width="120" height="16" border="0" alt="Share/Share"/></a>
-
-<script
-    type="text/javascript">a2a_linkname="From UCverse - {{ result.title }}";a2a_linkurl="{{ result.url }}";a2a_onclick=1;
-</script>
+<!-- share save -->
                 </p>
                  </div>
                   {% endfor %}
@@ -164,21 +150,13 @@ page <input style="font-size:1.5em;" size="1" value="1">   of 400
 {% endblock bodycontent %}
 
 <div class="prepend-1 prepend-top vert-banner">
-<a style="position: relative; left: 30px;" href="http://givetocal.berkeley.edu/browse/?u=123"><strong>Support WRCA!</strong></a><br><br>
-<a href="http://www.lib.berkeley.edu/WRCA"><img title="Water Resources Center Archives" src="http://www.lib.berkeley.edu/WRCA/images/wrca_logo_bluebkg_cmyk_r2.gif"></a>   
-<a style="position: relative; left: 19px;" href="http://www.facebook.com/pages/Berkeley-CA/Water-Resources-Center-Archives/163647453707"><img title="Become a WRCA Facebook fan!" src="http://www.lib.berkeley.edu/WRCA/images/fbbadge.png"></a>
+note here
 </div>
       </div>
 <hr>
 
 <div class="footer" align="center">
-<p><font face="Arial,Helvetica" size="1pt" color="666666">
-<b><a href="http://www.lib.berkeley.edu/WRCA/database.html">Catalogs</a> | <a href="http://www.lib.berkeley.edu/WRCA/ecomment.html">Comments</a></b> | <a href="http://www.lib.berkeley.edu/WRCA/friends.html"><b>Support the Archives</b></a><br>
-Copyright &copy; [Current-Year] The Regents of the University of California.<br>
-<i>All rights reserved.</i>&nbsp;&nbsp;Data owner: <a href="http://www.lib.berkeley.edu/WRCA/staff.html">Paul Atwood</a>
-
-</font>
-</p>
+footer
 </div>
 </div>
 

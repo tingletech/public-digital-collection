@@ -3,9 +3,11 @@
 ^java-homes/solr_home/data$
 .*logs$
 ^java-homes/catalina_base/webapps/solr$
+^java-homes/catalina_base/work$
 .*\.class$
 # virtualenv
 ^bin$
 ^lib$
 ^include$
 
+^tarballs$
