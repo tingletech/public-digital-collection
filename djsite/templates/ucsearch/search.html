@@ -15,27 +15,37 @@
 
 {% block header %}
 
-<div class="span-11 prepend-14 last">
-<h1>header</h1>
+<div class="span-17 prepend-8 last">
+<a href="/"><h1 style="float: right;">DPLA Vertical Search Demo</h1></a>
 </div>
 {% endblock header %}
-<form class="prepend-2 span-22">
+<form class="span-24">
               <input type="text" class="title" name="q"
 		value="{{ query }}"> <!-- fill in value -->
               <input type="submit" class="button" value="search"> 
-
-
 <!-- facets -->
 
+  {% if request.GET.fq %}
+    <span class="facet">{{ fq }}
+      &nbsp;<a href="{% url get_search_page %}?q={{ query }}" class="close">
+  ☒</a></span>
+    </span>
+    <input type="hidden" name="fq" value="{{ fq }}"/>
+  {% endif %}
 
-<!-- <span class="facet">Limited to WRCA web site <a href="" class="close" title="remove limit">☒</a></span>
-<span class="facet">Limited to PDF <a title="remove limit" class="close" href="#">☒</a></span> -->
 
+<!-- 
+<span class="facet">Limited to WRCA web site <a href="" class="close" title="remove limit">☒</a></span>
+<span class="facet">Limited to PDF <a title="remove limit" class="close" href="#">☒</a></span>
+-->
+
+<div class="resultCount">{{ response.numFound }} results</div>
 
 </form>
-<hr>
 {% block bodycontent %}
-      <div class="results span-14 prepend-2 colborder">
+<hr/>
+</div>
+      <div class="results span-16 colborder">
 <!-- 
 <div class="dym">Did you mean <a href="">loren gypsum</a>?</div>
 -->
@@ -48,33 +58,13 @@
 
                 {% ifequal number_results 0 %}
 <div class="notice">
-There are no results for this query (<b>{{ query }}</b>). Please modify your search and try again.
+There are no results for this query (<b>{{ query }}</b>{% if request.GET.fq %} {{fq }}{% endif %}). 
+Please modify your search and try again.
 </div>
 </div>
       <div class="span-7 last">
                 {% else %}
 
-
-
-<div class="pagination">
-
-<form>page {{ pagenum }} of {{ pager.num_pages }}
-<span>Showing
-                    <select name="perpage" id="perpage">
-                        {% for num in perpage_options %}
-                        {% ifequal num perpage %}
-                        <option value="{{ num }}" selected="selected">{{ num }}</option>
-                        {% else %}
-                        <option value="{{ num }}">{{ num }}</option>
-                        {% endifequal %}
-                        {% endfor %}
-                    </select>
-                    per page.</span> {{ response.numFound }} results
-<!-- showing <select><option>10</option><option>100</option></select> per page. 3992 results -->
-
-</form>
-
-</div>
 
                   {% for result in results %}
 
@@ -91,41 +81,27 @@ There are no results for this query (<b>{{ query }}</b>). Please modify your sea
                   {% endfor %}
 
 
-                 <div class="pagination"><a
-                      href="/search?q={{ query }}&perpage={{ perpage }}&pagnum=1">&lt;&lt;</a>&nbsp;&nbsp;
+
+
+<!-- <input type="submit" class="button" value="|◀"></input> -->
+
+<div class="pagination" style="float: right;">
                   {% if page_current.has_previous %}
-                  <a href="/search?q={{ query }}&perpage={{ perpage }}&pagenum={{ page_current.previous_page_number }}">&lt;</a>&nbsp;
+                  <a style="text-decoration: none;" href="/search?q={{ query }}&perpage={{ perpage }}&pagenum={{ page_current.previous_page_number }}">
+                       <input type="submit" class="button" value="◀"></input>
+                  </a>&nbsp;
                   {% endif %}
-                    <input name="pagenum" type="text" id="pagenum" size="1" value="{{ pagenum }}" />
+page 
+                    <span style="font-size:1.5em;">{{ pagenum }}</span>
                     of {{ pager.num_pages }}
                   {% if page_current.has_next %}
-                  <a href="/search?q={{ query }}&perpage={{ perpage }}&pagenum={{ page_current.next_page_number }}">&gt;</a>&nbsp;&nbsp;
+                  <a style="text-decoration: none;" href="/search?q={{ query }}&perpage={{ perpage }}&pagenum={{ page_current.next_page_number }}">
+                      <input type="submit" class="button" value="▶">
+                  </a>&nbsp;&nbsp;
                   {% endif %}
-                  <a href="/search?q={{ query }}&perpage={{ perpage }}&pagenum={{ pager.num_pages }}">&gt;&gt;</a>
-<span>Showing                    <select name="perpage" id="perpage">
-                        {% for num in perpage_options %}
-                        {% ifequal num perpage %}
-                        <option value="{{ num }}" selected="selected">{{ num }}</option>
-                        {% else %}
-                        <option value="{{ num }}">{{ num }}</option>                        {% endifequal %}
-                        {% endfor %}
-                    </select>
-                    per page.</span> {{ response.numFound }} results
+<!-- {{ response.numFound }} results -->
 
-                  </div>
-
-
-<!-- div class="pagination">
-<form>
-<input type="submit" class="button" value="|◀"></input>
-<input type="submit" class="button" value="◀"></input>
-page <input style="font-size:1.5em;" size="1" value="1">   of 400 
-<input type="submit" class="button" value="▶"></input>   
-
-
-
-</form>
-</div -->
+</div>
       </div>
 
       <div class="span-7 last">
@@ -134,7 +110,11 @@ page <input style="font-size:1.5em;" size="1" value="1">   of 400
 	<ul>
 {% for site, hits in response.facet_counts.facet_fields.site.items %}
 {% if hits %}
-  <li><a href="{% url get_search_page %}?q={{ request.GET.q }}&fq=site:&quot;{{ site }}&quot;">{{ site }} ({{ hits }})<a></li>
+  <li><a href="{% url get_search_page %}?q={{ query }}&fq=site:&quot;{{ site }}&quot;">{{ site }} ({{ hits }})</a>
+  {% if request.GET.fq %}
+    &nbsp;<a href="{% url get_search_page %}?q={{ query }}" class="close">☒</a>
+  {% endif %}
+</li>
 {% endif %}
 {% endfor %}
 	</ul>
@@ -150,13 +130,22 @@ page <input style="font-size:1.5em;" size="1" value="1">   of 400
 {% endblock bodycontent %}
 
 <div class="prepend-1 prepend-top vert-banner">
-note here
+<a href="https://spreadsheets.google.com/spreadsheet/viewform?formkey=dE54cWtlN1V0bU1HMjZEV0N3d25na0E6MQ">suggest a resource</a>
 </div>
       </div>
 <hr>
 
-<div class="footer" align="center">
-footer
+
+
+<div class="footer">
+<div><a href="http://www.cdlib.org/">CDL's</a> DPLA Vertical Search Demo |
+<a href="http://code.google.com/p/public-digital-collection/">project code</a> |
+<a href="http://public-digital-collection.googlecode.com/hg/pdc-mock.pdf">wireframes (PDF)</a>
+</div>
+<div>
+<a href="http://blogs.law.harvard.edu/dpla/">Digital Public Library of America Beta Sprint</a> --
+<a href="http://cyber.law.harvard.edu/dpla/Beta_Sprint_Statements_of_Interest">Projects</a>
+</div>
 </div>
 </div>
 

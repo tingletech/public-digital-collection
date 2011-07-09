@@ -24,7 +24,11 @@ A:active        { color: #9966FF; text-decoration: underline; }
 A:hover         { color: #CC6633; text-decoration: none; }
 
 
-.results div { padding:0 0 1.38em; }
+input.text, input.title {
+margin-bottom: 0px; 
+}
+
+/* .results div { padding:0 0 1.38em; } */
 .results div.notice { padding:0.8em; text-align: center; }
 .button { font-size: 1.5em; height: 1.8em; background-color: #a5d4eb; }
 .next { background-color: #a5d4eb; }
@@ -34,6 +38,9 @@ a.close { text-decoration: none; position:relative; left: 4px; }
 .facet { border:2px solid #DDDDDD; padding: .5em; margin-left: 3em; height: 1.8em; top: .5em; }
 .facet a.close { vertical-align:super; text-align: right; }
 .wrca-logo {  position:relative; left: 9px; }
+h1 a { text-decoration:none; }
+
+.resultCount{ color: #777; }
 
 </style>
 
@@ -45,29 +52,75 @@ a.close { text-decoration: none; position:relative; left: 4px; }
 
 
 
-<div class="span-11 prepend-14 last">
-<h1>header</h1>
+<div class="span-17 prepend-8 last">
+<h1 style="float: right;">DPLA Vertical Search Demo</h1>
 </div>
 
-<form class="prepend-2 span-22" action="/search/">
+<form action="/search/" class="span-24">
               <input type="text" class="title" name="q"
 		value=""> <!-- fill in value -->
               <input type="submit" class="button" value="search"> 
-
-
 <!-- facets -->
 
+  
 
-<!-- <span class="facet">Limited to WRCA web site <a href="" class="close" title="remove limit">☒</a></span>
-<span class="facet">Limited to PDF <a title="remove limit" class="close" href="#">☒</a></span> -->
 
+<!-- 
+<span class="facet">Limited to WRCA web site <a href="" class="close" title="remove limit">☒</a></span>
+<span class="facet">Limited to PDF <a title="remove limit" class="close" href="#">☒</a></span>
+-->
+
+<div class="resultCount">find results</div>
 
 </form>
+
+<hr/>
+</div>
+      <div class="results span-16 colborder">
+<!-- 
+<div class="dym">Did you mean <a href="">loren gypsum</a>?</div>
+-->
+
+                  
+
+                
+
+<div class="info">Welcome to a Digital Public Library of America Vertical Search Demo created for the <a href="http://blogs.law.harvard.edu/dpla/">DPLA Beta Sprint</a> by the <a href="http://www.cdlib.org/">California Digital Library</a>
+</div>
+
+                  
+
+
+
+
+<!-- <input type="submit" class="button" value="|◀"></input> -->
+
+      </div>
+
+      <div class="span-7 last">
+
+
 <hr>
 
 
-<div class="footer" align="center">
-footer
+
+<div class="prepend-1 prepend-top vert-banner">
+<a href="https://spreadsheets.google.com/spreadsheet/viewform?formkey=dE54cWtlN1V0bU1HMjZEV0N3d25na0E6MQ">suggest a resource</a>
+</div>
+      </div>
+<hr>
+
+
+
+<div class="footer">
+<div><a href="http://www.cdlib.org/">CDL's</a> DPLA Vertical Search Demo |
+<a href="http://code.google.com/p/public-digital-collection/">project code</a> |
+<a href="http://public-digital-collection.googlecode.com/hg/pdc-mock.pdf">wireframes (PDF)</a>
+</div>
+<div>
+<a href="http://blogs.law.harvard.edu/dpla/">Digital Public Library of America Beta Sprint</a> --
+<a href="http://cyber.law.harvard.edu/dpla/Beta_Sprint_Statements_of_Interest">Projects</a>
+</div>
 </div>
 </div>
 

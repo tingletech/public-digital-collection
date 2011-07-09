@@ -15,8 +15,8 @@ def query_response(query, fq=''):
                     highlight=True,
                     hl_snippets = 4,
                     hl_fragsize = 100,
-                    hl_simple_pre='<span class="search_highlight">',
-                    hl_simple_post='</span>',
+                    #hl_simple_pre='<span class="search_highlight">',
+                    #hl_simple_post='</span>',
                     facet='true', 
                     facet_field='site',
                     fq = fq,
@@ -109,7 +109,8 @@ def view_search_page(request, query, perpage=20, pagenum=1, fq=''):
         #result['snippets'] = get_highlights_for_result(result, response.highlighting)
         if result['url'][0] == '/':
             result['url'] = 'http://'+ hostname + result['url']
-    perpage_options = [10,100,]
+    #perpage_options = [10,100,]
+    perpage_options = [10,]
     if perpage not in perpage_options:
         perpage_options.append(perpage)
 

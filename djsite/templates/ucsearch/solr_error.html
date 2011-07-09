@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+<!-- { % extends 'base.html' % } -->
 {% block mainclass %}
 search
 {% endblock mainclass %}
@@ -9,10 +9,6 @@ Search Error!
 
 
 {% block breadcrumbs %}
-<div id="breadcrumbs"><span class="label">Now Browsing:</span>
-    <span class="arrow"></span>
-    <a href="/search?q={{ query }}">UC Links Related to {{ query }}</a>
-</div>
 {% endblock breadcrumbs %}
 
 {% block bodycontent %}	
