@@ -1,0 +1,34 @@
+=====================================================
+DPLA Vertical Search Demo / public-ditigal-collection
+=====================================================
+
+operator note: switch into the bash shell
+
+---------------------
+Files and directories
+---------------------
+
+YOU ARE HERE  <----
+   ---> README	
+
+`source` this file to set up environment to run tomcat/solr
+    --> ENV.bash
+
+`bash` this file to setup django virtual environment for front end
+    --> virtualenv.bash
+
+wireframes
+    --> pdc-mock.key
+    --> pdc-mock.pdf
+
+revision control exculde file
+    --> .hgignore <----------------<< see also comments in this file
+
+base dir for apache/wsgi server
+    --> apache-run/
+
+base dir for tomcat
+    --> java-homes/catalina_base 
+
+base dir for solr
+    --> java-homes/solr_home

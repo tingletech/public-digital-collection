@@ -1,13 +1,22 @@
+# revision control (hg) ignore file
+
+# ignore compiled python and java classes
 .*\.pyc$
-^java-packages$
-^java-homes/solr_home/data$
+.*\.class$
+
+#ignore log directories
 .*logs$
+
+# ignore packed unpacked java binary and other source distributions
+^java-packages$
+^tarballs$
+
+# ignore "working" files in the configuration for tomcat/solr
+^java-homes/solr_home/data$
 ^java-homes/catalina_base/webapps/solr$
 ^java-homes/catalina_base/work$
-.*\.class$
-# virtualenv
+
+# ignore virtualenv used for running django test server for development
 ^bin$
 ^lib$
 ^include$
-
-^tarballs$
