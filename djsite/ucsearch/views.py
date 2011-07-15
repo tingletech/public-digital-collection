@@ -17,8 +17,10 @@ def query_response(query, fq=''):
                     hl_fragsize = 100,
                     #hl_simple_pre='<span class="search_highlight">',
                     #hl_simple_post='</span>',
+                    spellcheck='true', 
+                    spellcheck_collate='true', 
+                    # facet_field=['site','host'],
                     facet='true', 
-                    facet_field='site',
                     fq = fq,
                   )
 
@@ -41,9 +43,15 @@ def query_results_text(query):
 def get_highlights_for_result(result, highlights):
     '''Get the search result snippets for given result
     '''
-    result_highlights = highlights.get(result['url'])
+    try:
+        result_highlights = highlights.get(result['url'])
+    except:
+        result_highlights = ""
     #check if has contents, if not fill in with?
-    content = result_highlights.get('content', None)
+    try:
+        content = result_highlights.get('content', None)
+    except:
+        content = ""
     if content:
         snippets = content
     else:
@@ -52,7 +60,7 @@ def get_highlights_for_result(result, highlights):
     
 
 def get_search_page(request):
-    query = request.GET.get('q', None)
+    query = request.GET.get('q', '')
     perpage = request.GET.get('perpage', 10)
     fq = request.GET.get('fq', '')
     try:
@@ -93,6 +101,10 @@ def view_search_page(request, query, perpage=20, pagenum=1, fq=''):
         searchError = "There was a problem with your query"
         return render_to_response('ucsearch/solr_error.html', locals())
 
+    try:
+        spelling_suggestion = response.spellcheck['suggestions'].get('collation',None)
+    except:
+        spelling_suggestion = ""
     number_results = int(response.results.numFound)
     if number_results == 0:
         return render_to_response('ucsearch/search.html', locals())

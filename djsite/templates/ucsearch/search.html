@@ -15,14 +15,15 @@
 
 {% block header %}
 
-<div class="span-17 prepend-8 last">
-<a href="/"><h1 style="float: right;">DPLA Vertical Search Demo</h1></a>
+<div class="span-17 last">
+<h1><a href="/">DPLA Vertical Search Demo</a></h1>
 </div>
 {% endblock header %}
 <form class="span-24">
-              <input type="text" class="title" name="q"
+              <input type="text" id="query" class="title" name="q"
 		value="{{ query }}"> <!-- fill in value -->
-              <input type="submit" class="button" value="search"> 
+<!-- a class="clear" id="clearQuery" href="#" title="Clear">×</a -->
+              <input type="submit" id="submit" class="button" value="search"> 
 <!-- facets -->
 
   {% if request.GET.fq %}
@@ -40,15 +41,15 @@
 -->
 
 <div class="resultCount">{{ response.numFound }} results</div>
+  {% if spelling_suggestion %}
+    <span class="dym">Did you mean <a href="/search?q={{ spelling_suggestion }}">{{ spelling_suggestion }}</a>?</span>
+  {% endif %}
 
 </form>
 {% block bodycontent %}
 <hr/>
 </div>
       <div class="results span-16 colborder">
-<!-- 
-<div class="dym">Did you mean <a href="">loren gypsum</a>?</div>
--->
 
                   {% if searchError %}
 			<div class="error">
@@ -95,7 +96,7 @@ page
                     <span style="font-size:1.5em;">{{ pagenum }}</span>
                     of {{ pager.num_pages }}
                   {% if page_current.has_next %}
-                  <a style="text-decoration: none;" href="/search?q={{ query }}&perpage={{ perpage }}&pagenum={{ page_current.next_page_number }}">
+                  <a style="text-decoration: none;" href="/search?q={{ query }}{% if fq %}&fq={{ fq }}{% endif %}&pagenum={{ page_current.next_page_number }}">
                       <input type="submit" class="button" value="▶">
                   </a>&nbsp;&nbsp;
                   {% endif %}
@@ -148,6 +149,6 @@ page
 </div>
 </div>
 </div>
-
+<!-- script type="text/javascript" src="/x.js"/ -->
   </body>
 </html>

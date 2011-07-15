@@ -12,9 +12,9 @@
 ^tarballs$
 
 # ignore "working" files in the configuration for tomcat/solr
-^java-homes/solr_home/data$
-^java-homes/catalina_base/webapps/solr$
-^java-homes/catalina_base/work$
+^java-homes/solr_.*/data$
+^java-homes/catalina_.*/webapps$
+^java-homes/catalina_.*/work$
 
 # ignore virtualenv used for running django test server for development
 ^bin$
