@@ -415,7 +415,6 @@ http://www.tenement.org/banana/
 http://www.tenement.org/codecity/
 http://www.tenement.org/HardPlace/
 http://www.territorialkansasonline.org
-http://www.thdi.org
 http://www.thehistorymakers.com/
 http://www.umvphotoarchive.org/
 http://www.usg.edu/galileo/about/planning/projects/crdl/
@@ -426,5 +425,4 @@ http://www.westernwaters.org/
 http://www.whitmanarchive.org/
 http://www.whitmanarchive.org/manuscripts/finding_aids/index.html
 http://www.winningthevote.org/
-http://www.worklore.net/
 http://www.wvculture.org/HiStory/wvmemory/imlsintro.html
