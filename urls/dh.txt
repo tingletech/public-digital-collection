@@ -37,7 +37,6 @@ http://docsouth.unc.edu
 http://etext.lib.virginia.edu/eaf/
 http://www.mith2.umd.edu/eada
 http://webapp1.dlib.indiana.edu/imh/
-http://www.tei-c.org/Activities/Projects/lt01.xml
 http://www.marktwainproject.org/
 http://www.wjfc.org 
 http://digital.lib.ucdavis.edu/projects/ufw/
