@@ -1,0 +1,12 @@
+tested with apache-nutch-1.3 from http://nutch.apache.org/
+
+Copy nutch-site.xml and regex-urlfilter.txt from this directory to
+nutch's conf directory.
+
+'ant clean' if you have built before
+
+'ant' to build
+
+use runtime/local/bin/nutch to test your configuration
+
+use runtime/deploy to run on hadoop
