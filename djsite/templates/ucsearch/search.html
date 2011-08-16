@@ -88,17 +88,30 @@ Please modify your search and try again.
 
 <div class="pagination" style="float: right;">
                   {% if page_current.has_previous %}
-                  <a style="text-decoration: none;" href="/search?q={{ query }}&perpage={{ perpage }}&pagenum={{ page_current.previous_page_number }}">
-                       <input type="submit" class="button" value="◀"></input>
-                  </a>&nbsp;
+                  <form method="GET" style="display: inline; text-decoration: none;" action="/search">
+                      <input type="hidden" name="q" value="{{ query }}"/>
+                      {% if fq %}
+                          <input type="hidden" name="fq" value="{{ fq }}"/>
+                      {% endif %}
+                      <input type="hidden" name="pagenum" 
+                          value="{{ page_current.previous_page_number }}"/>
+                      <input type="submit" class="button" value="◀"></input>
+                  </form>&nbsp;&nbsp;
                   {% endif %}
 page 
                     <span style="font-size:1.5em;">{{ pagenum }}</span>
                     of {{ pager.num_pages }}
                   {% if page_current.has_next %}
-                  <a style="text-decoration: none;" href="/search?q={{ query }}{% if fq %}&fq={{ fq }}{% endif %}&pagenum={{ page_current.next_page_number }}">
+                  <form method="GET" style="display: inline; text-decoration: none;" action="/search">
+                      <input type="hidden" name="q" value="{{ query }}"/>
+                      {% if fq %}
+                          <input type="hidden" name="fq" value="{{ fq }}"/>
+                      {% endif %}
+                      <input type="hidden" name="pagenum" 
+                          value="{{ page_current.next_page_number }}"/>
                       <input type="submit" class="button" value="▶">
-                  </a>&nbsp;&nbsp;
+                  </form>&nbsp;&nbsp;
+
                   {% endif %}
 <!-- {{ response.numFound }} results -->
 
