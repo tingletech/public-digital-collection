@@ -81,55 +81,54 @@ padding: 1em; font-size: 1.5em; }
 
                 
 
-<div class="info">Welcome to a Digital Public Library of America Vertical Search Demo created for the <a href="http://blogs.law.harvard.edu/dpla/">DPLA Beta Sprint</a> by the <a href="http://www.cdlib.org/">California Digital Library</a>
+<div class="info">Welcome to the Digital Public Library of America Vertical Search Demo, created for the <a href="http://blogs.law.harvard.edu/dpla/">DPLA Beta Sprint</a> by 
+the <a href="http://www.cdlib.org/">California Digital Library</a>.
 </div>
 
                   
 <h2>Why explore a web crawler approach?</h2>
 <ul>
 <li>No need to rationalize and ingest metadata</li>
-<li>Leverage curation expertise of libraries to focus enterprise search technology</li>
+<li>Leverages curation expertise of libraries to focus enterprise search technology</li>
 <li>Builds on existing technology we can easily deploy</li>
 <!-- li>Improving search engine optimization will also enhance discovery on the open web</li -->
 
 
 </ul>
  
-<h2>Technology used</h2>
+<h2>What technology does it use?</h2>
    <p>This demo is built using <a href="http://nutch.apache.org/">Apache Nutch 1.3</a> for web crawling and
 <a href="http://www.lucidimagination.com/products/certified/solr">LucidWorks Certified Distribution for Solr Release 3.2</a> for search with a simple
 web interface using django templates.  
-The <a href="https://ccp.cloudera.com/display/CDH2DOC/Configuring%20and%20Running%20CDH%20Cloud%20Scripts">Cloudera Distrobution of Hadoop</a> will be run on <a href="http://aws.amazon.com/ec2/spot-instances/">Amazon EC2 Spot Instances</a> to create the index for the demo.  The goal is to do minimal programming for the demo, focusing on configuration of the crawl and search.  
+The <a href="https://ccp.cloudera.com/display/CDH2DOC/Configuring%20and%20Running%20CDH%20Cloud%20Scripts">Cloudera Distrobution of Hadoop</a> is running on <a 
+href="http://aws.amazon.com/ec2/spot-instances/">Amazon EC2</a> to create the index for the demo. The goal was to do minimal programming for the demo, focusing on configuration of the crawl and search.  
 <a href="http://code.google.com/p/public-digital-collection/">Code and configuration files</a> are on Google Code.
 
 
-<h2>Targeted content</h2>
-<p>
-<a href="http://imlsdcc.grainger.uiuc.edu/">IMLS Digital Collections
-and Content</a> is a registry of digital materials funded by IMLS
-National Leadership Grants and selected LSTA-supported collections.  The IMLS DCC will 
-provide the foundation for the demo index.  In addition, resources from the University of
-California and digital resources such as the <a href="http://www.nines.org/">Nineenth-century Scholarship Online</a> Federated Websites
-will be in the initial crawl.
-</p>
+<h2>What content has been targeted?</h2>
+<p>The demo targets a range of websites with digital content. Currently, approximately 300,000 unique URLs from 100 sources are included in the index. The <a 
+href="http://imlsdcc.grainger.uiuc.edu/">IMLS Digital Collections
+and Content</a>--a registry of digital materials funded by IMLS National Leadership Grants and selected LSTA-supported collections--provides the foundation for the demo index. In addition, resources 
+from the University of
+California, other libraries and institutions, and aggregated content websites have been included in the initial crawl. The full seed list is maintained in <a 
+href="http://code.google.com/p/public-digital-collection/source/browse/#hg%2Furls">Google Code</a>.</p>
 
-<p>The full seed list is maintained in <a href="http://code.google.com/p/public-digital-collection/source/browse/#hg%2Furls">Google Code</a>.  If you have ideas for additional resources that should be included in the demo or a later
-phase please <a href="https://spreadsheets.google.com/spreadsheet/viewform?formkey=dE54cWtlN1V0bU1HMjZEV0N3d25na0E6MQ">let us know and suggest a site.</a></p>
+<p>If you have ideas for additional resources that should be included in the demo or a later
+phase, please <a href="https://spreadsheets.google.com/spreadsheet/viewform?formkey=dE54cWtlN1V0bU1HMjZEV0N3d25na0E6MQ">let us know by suggesting a site.</a></p>
 
-<p>Integrating mass digitized monograph collections such as the <a href="http://www.hathitrust.org/">Hathi Trust</a> will
-not be investigated in this demo for both technical and content development reasons.  While we believe that a 
+<p>Integrating mass digitized monograph collections such as the <a href="http://www.hathitrust.org/">Hathi Trust</a> was not investigated in this demo for both technical and content development 
+reasons.  While we believe a 
 crawler approach could be used to aggregate monographs, digitized monographs do not have the same granularity and characteristics as
-web pages and short documents often found on the web.  The out-of-the-box stack we are using is tuned for 
-web crawling and search, and we anticipate book search may not be optimized by default.  Furthermore, we believe that 
-access to digitized local history and cultural history is an import role of libraries and this library developed content should be 
-made more visible.
+web pages and short documents often found on the web. The out-of-the-box stack we are using is tuned for 
+web crawling and search, and we anticipate book search may not be optimized by default. Furthermore, we believe that 
+access to digitized local history and cultural history is an import role of libraries, and that this content should be made more visible.
 </p>
 
 
    <!-- div><a href="https://code.google.com/p/public-digital-collection/source/browse/#hg%2Furls">list</a> Description</div>
    <div>Overlap with CLIR</div>
    <div>Other possible approaches to building a target list (more defined scope, etc.)</div -->
-<h2>How it could be used / built out</h2>
+<h2>How could it be built out?</h2>
    <!-- p>Different use cases...
   Defined topics... User suggestions... -->
 <p>Future phases of the project, if pursued, could put programming effort into developing plugins or filters for Nutch or Solr that would
