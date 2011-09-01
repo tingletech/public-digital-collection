@@ -1,8 +1,9 @@
 # revision control (hg) ignore file
 
-# ignore compiled python and java classes
+# ignore compiled python and java classes and other generated artifacts
 .*\.pyc$
 .*\.class$
+.*index_jsp.java$
 
 #ignore log directories
 .*logs$
@@ -12,7 +13,7 @@
 ^tarballs$
 
 # ignore "working" files in the configuration for tomcat/solr
-^java-homes/solr_.*/data$
+^java-homes/solr_.*/data.*$
 ^java-homes/catalina_.*/webapps$
 ^java-homes/catalina_.*/work$
 

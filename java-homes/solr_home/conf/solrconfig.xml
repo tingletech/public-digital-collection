@@ -716,7 +716,8 @@
          content^0.5 anchor^1.0 title^1.2
        </str>
        <str name="pf">content anchor^1.5 title^1.2 site^1.5</str>
-       <str name="pf2">content anchor^1.5 title^1.2 site^1.5</str>
+       <str name="pf2">content anchor title site</str>
+       <str name="pf3">content anchor title site</str>
        <str name="fl">url</str>
        <str name="mm">2&lt;-1 5&lt;-2 6&lt;90%</str>
        <int name="ps">100</int>

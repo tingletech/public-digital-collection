@@ -1,4 +1,7 @@
 from settings import *
+import sys
+
+sys.path.insert(0,"/ucportal/briantinglecdliborg-solrpy/")
 
 DEBUG_TOOLBAR = True
  
